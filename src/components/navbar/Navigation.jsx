@@ -2,19 +2,19 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import SearchInput from '../input/SearchInput';
 
-const Navigation = ({ onSearchChange }) => { 
+
+const Navigation = () => { 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        
+                    <Nav.Link href="#">Home</Nav.Link>
+                    <Nav.Link href="#">About</Nav.Link>
                     </Nav>
                     
-                    <SearchInput onSearchChange={onSearchChange} />
                 </Navbar.Collapse>
             </Container>
         </Navbar>
@@ -22,4 +22,6 @@ const Navigation = ({ onSearchChange }) => {
 }
 
 export default Navigation;
+
+
 

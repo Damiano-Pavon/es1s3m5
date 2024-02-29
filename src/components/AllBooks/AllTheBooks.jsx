@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import CardItems from './CardItems';
-import fantasy from '../Data/fantasy';
-
-function Books({ searchTerm, onSearchChange }) {
-
-
-  const filteredBooks = fantasy.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+import SingleBook from './SingleBook';
+import fantasy from "../Data/fantasy.json"
+function Books() {
+ 
 
   return (
     <Container>
-      
       <Row gap={5}>
-        {filteredBooks.map((card) => {
+        {fantasy.map((card) => {
           return (
-            <CardItems
+            <SingleBook
               key={card.asin}
               title={card.title}
               img={card.img}
               price={card.price}
+              id={card.asin}
             />
           );
         })}
@@ -31,3 +26,7 @@ function Books({ searchTerm, onSearchChange }) {
 }
 
 export default Books;
+
+
+
+

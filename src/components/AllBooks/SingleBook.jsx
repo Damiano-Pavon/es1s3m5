@@ -1,8 +1,8 @@
-
 import Card from 'react-bootstrap/Card';
 import  Col  from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
-function CardItems({img,title,price}) {
+function SingleBook({img,title,price,id}) {
   return (
     <Col sm={6} md={4} lg={3}>
     <Card style={{ height: '600px' }}>
@@ -12,11 +12,14 @@ function CardItems({img,title,price}) {
         <Card.Text>
          {price}$
         </Card.Text>
-       
-      </Card.Body>
+        <Link to={`/book/${id}`}>
+          <button>Dettagli</button>
+        </Link>
+       </Card.Body>
     </Card>
     </Col>
   );
 }
 
-export default CardItems;
+export default SingleBook;
+

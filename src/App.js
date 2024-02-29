@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import Navigation from "./components/navbar/Navigation";
-import MyFooter from "./components/footer/MyFooter";
-import Welcome from "./components/Welcome/Welcome";
-import Books from "./components/AllBooks/AllTheBooks";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import NotFound from "./pages/NotFound";
+import Details from "./pages/Details";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
   return (
-    <div>
-      <Navigation onSearchChange={handleSearchChange} />
-      <Welcome />
-      <Books searchTerm={searchTerm} />
-      <MyFooter />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route path="/book/:id" element={<Details />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
